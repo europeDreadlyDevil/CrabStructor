@@ -1,9 +1,8 @@
-use constructor::Constructor;
+
 
 #[cfg(test)]
 mod test {
-    use crate::Constructor;
-
+    use constructor_derive::Constructor;
     #[test]
     fn lib_test() {
 
