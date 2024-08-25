@@ -2,7 +2,7 @@
 
 #[cfg(test)]
 mod test {
-    use constructor_derive::Constructor;
+    use crabstructor::Constructor;
     #[test]
     fn lib_test() {
 

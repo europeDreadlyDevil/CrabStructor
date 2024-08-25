@@ -1,5 +1,5 @@
 [package]
-name = "constructor_derive"
+name = "crabstructor"
 version = "0.1.0-beta"
 authors = ["devil <europedreadlydevil@gmail.com>"]
 description = "Simple constructor generator for named structures"
