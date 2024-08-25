@@ -1,0 +1,17 @@
+[package]
+name = "constructor_derive"
+version = "0.1.0-beta"
+authors = ["devil <europedreadlydevil@gmail.com>"]
+description = "Simple constructor generator for named structures"
+keywords = ["constructor", "derive", "auto_constructor"]
+edition = "2018"
+license = "Apache-2.0"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+quote = "1"
+proc-macro2 = "1.0"
+syn = "1"
+
