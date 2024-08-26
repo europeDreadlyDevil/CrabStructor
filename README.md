@@ -1,21 +1,24 @@
-![Crates.io Version](https://img.shields.io/crates/v/crabstructor?style=flat-square&label=crabstructor)
 
-# Auto constructor derive for structures
-
-Simple constructor generator for named structures
+# CrabStructor v0.2.0-alpha
 
 ```rust
 #[derive(Constructor, Eq, PartialEq, Debug)]
-#[constructor(
-    field1 = r#"String::from("test")"#
-)]
 struct Example {
-    field1: String,
-    field2: i32
+    #[init(10)]
+    field: i32,
 }
 
-assert_eq!(Example::new(2), Example {field1: "test".to_string(), field2: 2});
+assert_eq!(Example::new(), Example {field: 10});
 ```
 
+# Alert
 
+***This is not dev version of lib***
 
+## Supported types
+1. i32
+2. String
+3. &str
+
+# Todo
+1. Write trait for easy support of any type
