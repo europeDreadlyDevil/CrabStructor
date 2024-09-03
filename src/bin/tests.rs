@@ -1,8 +1,8 @@
-use crabstructor::Constructor;
+use crabstructor::derive::Constructor;
 
 #[cfg(test)]
-mod test {
-    use crabstructor::Constructor;
+mod tests {
+    use crabstructor::derive::Constructor;
     #[test]
     fn lib_test_int() {
 
@@ -39,8 +39,28 @@ mod test {
         assert_eq!(Example::new(), Example {field: "my_string"})
     }
 
+    #[test]
+    fn lib_test_bool() {
+        #[derive(Constructor, Eq, PartialEq, Debug)]
+        struct Example {
+            #[init(true)]
+            field: bool,
+        }
+
+        assert_eq!(Example::new(), Example {field: true})
+    }
+
 }
 
 fn main() {
+    #[derive(Constructor)]
+    struct Example<'a> {
+        #[init(10)]
+        field: i32,
+        #[init("str")]
+        str: &'a str,
+        #[init("string")]
+        string: String
+    }
 
 }

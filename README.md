@@ -16,9 +16,9 @@ assert_eq!(Example::new(), Example {field: 10});
 ***This is not dev version of lib***
 
 ## Supported types
-1. i32
-2. String
-3. &str
+1. All strings, which implement Into trait
+2. All rust nums
+3. Bool types
 
 # Todo
 1. Write trait for easy support of any type
