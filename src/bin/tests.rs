@@ -94,6 +94,17 @@ mod tests {
 
         assert_eq!(Example::new("string".to_string()), Example {field: Arc::new("string".into())})
     }
+    
+    #[test]
+    fn lib_test_ref_str_arg() {
+        #[derive(Constructor, PartialEq, Debug)]
+        struct Example {
+            #[init(as_str)]
+            field: String,
+        }
+
+        assert_eq!(Example::new("string"), Example {field: "string".into()})
+    }
 }
 
 fn main() {

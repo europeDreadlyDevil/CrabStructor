@@ -22,9 +22,11 @@ pub fn constructor_derive(input: TokenStream) -> TokenStream {
     for field in fields.iter() {
         let field_name = field.ident.clone().unwrap();
         let field_type = field.ty.clone();
-
+        
         let mut default_value: Option<Value> = None;
 
+        
+        
         for attr in &field.attrs {
             if attr.path().is_ident("init") {
                 if let Meta::List(meta_list) = &attr.meta {
@@ -35,6 +37,10 @@ pub fn constructor_derive(input: TokenStream) -> TokenStream {
                     if let Ok(ident) =  syn::parse::<syn::Ident>(TokenStream::from(meta_list.tokens.clone())) {
                         default_value = match ident.to_string().as_str() {
                             "default" => Some(Value::TokenStream {token_stream: quote! { #field_type::default() }.into() } ),
+                            "as_str" => {
+                                args.push(quote! {#field_name: &str});
+                                Some(Value::TokenStream {token_stream: quote! { #field_type::from(#field_name) }.into() })
+                            },
                             _ => panic!("Unknown ident")
                         }
                     }
