@@ -1,14 +1,16 @@
 [package]
 name = "crabstructor"
-version = "0.1.0-beta"
+version = "0.2.0-beta"
 authors = ["devil <europedreadlydevil@gmail.com>"]
 description = "Simple constructor generator for named structures"
 keywords = ["constructor", "derive", "auto_constructor"]
 edition = "2018"
 license = "Apache-2.0"
 
-[dependencies]
-crabstructor_derive = { version = "0.1.0", path = "derive" }
+[lib]
+proc-macro = true
 
-[features]
-derive = []
+[dependencies]
+quote = "1"
+proc-macro2 = {version = "1.0.86"}
+syn = { version = "2", features = ["full", "extra-traits"] }

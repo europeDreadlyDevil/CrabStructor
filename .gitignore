@@ -1,5 +1,5 @@
 derive/target
-derive/Cargo.lock
+src/Cargo.lock
 /target
 .idea
 Cargo.lock
